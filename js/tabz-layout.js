@@ -38,7 +38,11 @@ function getTabsArr(filter){
 		}
 
 		if(!bShowTab && settings.getJson('tabz.search.text')){
-			if(filter && tabs[i].text.toLowerCase().indexOf(filter) > -1){
+			// if(filter && tabs[i].text.toLowerCase().indexOf(filter) > -1){
+			// 	bShowTab = true;
+			// }
+			var reg = new RegExp(filter);
+			if(filter && reg.test(tabs[i].text.toLowerCase())){
 				bShowTab = true;
 			}
 		}
